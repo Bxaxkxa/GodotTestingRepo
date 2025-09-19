@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://c63orkdvkm4sg"]
+
+[ext_resource type="Texture2D" uid="uid://b6j8lmkw6t3n0" path="res://Assets/SlimeVer10.png" id="1_1hgev"]
+[ext_resource type="Script" path="res://Script/PlayerMovement.gd" id="1_eh2ji"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdi8d"]
+atlas = ExtResource("1_1hgev")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj86b"]
+atlas = ExtResource("1_1hgev")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbolb"]
+atlas = ExtResource("1_1hgev")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x004f"]
+atlas = ExtResource("1_1hgev")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m480"]
+atlas = ExtResource("1_1hgev")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq5r5"]
+atlas = ExtResource("1_1hgev")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bonf1"]
+atlas = ExtResource("1_1hgev")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_80sms"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdi8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj86b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbolb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x004f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m480")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq5r5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bonf1")
+}],
+"loop": true,
+"name": &"SlimeWalking Animation",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7giw"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_eh2ji")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_80sms")
+animation = &"SlimeWalking Animation"
+frame_progress = 0.732467
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17)
+scale = Vector2(1.3, 1.3)
+shape = SubResource("CircleShape2D_w7giw")
+one_way_collision = true

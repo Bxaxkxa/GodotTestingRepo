@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dev00dbdih2c5"]
+
+[ext_resource type="PackedScene" uid="uid://c63orkdvkm4sg" path="res://Scene/SlimeCharacter.tscn" id="1_4mtkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4m2rg"]
+size = Vector2(362, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("1_4mtkn")]
+position = Vector2(103, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(103, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(178, 59)
+shape = SubResource("RectangleShape2D_4m2rg")
